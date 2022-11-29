@@ -26,6 +26,10 @@ public class PersonaGraduada {
     @Column(name = "carnet", unique = true, length = 20, nullable = false)
     private String carnet;
 
+    // 1 - Una PersonaGraduada tiene muchos itemnesGraduacion
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona", orphanRemoval = true)
+    private ArrayList<ItemGraduacion> itemnesGraduacion;
+
     // 2 - Una persona tiene muchas respuestas
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaGraduada", orphanRemoval = true)
     private ArrayList<RespuestaActividadAcademica> respuestas;

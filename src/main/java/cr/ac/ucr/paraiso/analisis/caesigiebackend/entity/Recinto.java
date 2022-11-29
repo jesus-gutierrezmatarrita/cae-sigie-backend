@@ -9,7 +9,7 @@ public class Recinto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idRecinto;
     @Column(name = "codigoRecinto", unique = false, length = 50, nullable = false)
     private String codigoRecinto;
     @Column(name = "nombre", unique = true, length = 50, nullable = false)
@@ -25,8 +25,11 @@ public class Recinto {
     @Column(name = "direccion", unique = false, length = 100, nullable = false)
     private String direccion;
 
-    //6-
-    
+    // 6 - Many to many
+    @ManyToMany
+    @JoinTable(name = "recinto_consulta", joinColumns = @JoinColumn(name = "idRecinto"), 
+    inverseJoinColumns = @JoinColumn(name = "idConsultaActividadAcademica"))
+    private ArrayList<ConsultaActividadAcademica> consultas;
 
     // 7 - En un recinto se graduaron muchas PersonasGraduadas
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recintoDeGraduado", orphanRemoval = true)

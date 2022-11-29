@@ -19,6 +19,6 @@ public class RespuestaActividadAcademica {
 
     // 3 - Respuestas para una actividad academica
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idConsultaActividadAcademica")
     private ConsultaActividadAcademica actividadAcademica;
 }

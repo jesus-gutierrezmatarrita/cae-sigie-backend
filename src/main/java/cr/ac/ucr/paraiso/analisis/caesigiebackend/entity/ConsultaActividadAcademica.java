@@ -10,7 +10,7 @@ public class ConsultaActividadAcademica {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idConsultaActividadAcademica;
     @Column(name = "titulo", unique = false, length = 100, nullable = false)
     private String titulo;
     @Column(name = "descripcion", unique = false, length = 200, nullable = false)
@@ -38,6 +38,8 @@ public class ConsultaActividadAcademica {
     @JoinColumn(name = "idPersonaCoordinadora")
     private PersonaCoordinadora personaCoordinadora;
 
-    // 6 - 
+    // 6 - Many to many
+    @ManyToMany(mappedBy = "consultas")
+    private ArrayList<Recinto> recintos;
     
 }
