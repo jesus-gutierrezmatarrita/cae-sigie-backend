@@ -1,14 +1,12 @@
 package cr.ac.ucr.paraiso.analisis.caesigiebackend.entity;
 
-
 import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.*;
 
 @Embeddable
-public class ItemGraduacionId implements Serializable{
-
+public class ItemGraduacionId implements Serializable {
 
     @Column(name = "idPersonaGraduada")
     private int idPersonaGraduada;
@@ -33,25 +31,25 @@ public class ItemGraduacionId implements Serializable{
     }
 
     public ItemGraduacionId(
-        int idPersonaGraduada,
-        int idPlanEstudio
-    ) {
+            int idPersonaGraduada,
+            int idPlanEstudio) {
         this.idPersonaGraduada = idPersonaGraduada;
         this.idPlanEstudio = idPlanEstudio;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
- 
+        if (this == o)
+            return true;
+
         if (o == null || getClass() != o.getClass())
             return false;
- 
-            ItemGraduacionId itemGraduacionId = (ItemGraduacionId) o;
+
+        ItemGraduacionId itemGraduacionId = (ItemGraduacionId) o;
         return Objects.equals(idPersonaGraduada, itemGraduacionId.idPersonaGraduada) &&
-               Objects.equals(idPlanEstudio, itemGraduacionId.idPlanEstudio);
+                Objects.equals(idPlanEstudio, itemGraduacionId.idPlanEstudio);
     }
- 
+
     @Override
     public int hashCode() {
         return Objects.hash(idPersonaGraduada, idPlanEstudio);

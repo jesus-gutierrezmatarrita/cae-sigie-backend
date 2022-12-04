@@ -1,6 +1,6 @@
 package cr.ac.ucr.paraiso.analisis.caesigiebackend.entity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -20,8 +20,10 @@ public class PersonaCoordinadora {
     private int telefono;
     @Column(name = "carnet", unique = false, length = 20, nullable = true)
     private String carnet;
+    @Column(name = "contrasenna", unique = false, length = 20, nullable = false)
+    private String contrasenna;
 
     // 5 - Una PersonaCoordinadora publica muchas consultas
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaCoordinadora", orphanRemoval = true)
-    private ArrayList<ConsultaActividadAcademica> consultas;
+    private List<ConsultaActividadAcademica> consultas;
 }

@@ -1,6 +1,6 @@
 package cr.ac.ucr.paraiso.analisis.caesigiebackend.entity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -19,5 +19,5 @@ public class PlanEstudio {
 
     // 1.2 - Un PlanEstudio tiene muchos ItemGraduacion
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "planEstudio", orphanRemoval = true)
-    private ArrayList<ItemGraduacion> itemnesGraduacion;
+    private List<ItemGraduacion> itemnesGraduacion;
 }

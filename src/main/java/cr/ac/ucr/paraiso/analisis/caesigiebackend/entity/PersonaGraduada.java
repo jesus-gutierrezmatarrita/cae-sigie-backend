@@ -1,6 +1,6 @@
 package cr.ac.ucr.paraiso.analisis.caesigiebackend.entity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -28,11 +28,11 @@ public class PersonaGraduada {
 
     // 1 - Una PersonaGraduada tiene muchos itemnesGraduacion
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona", orphanRemoval = true)
-    private ArrayList<ItemGraduacion> itemnesGraduacion;
+    private List<ItemGraduacion> itemnesGraduacion;
 
     // 2 - Una persona tiene muchas respuestas
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaGraduada", orphanRemoval = true)
-    private ArrayList<RespuestaActividadAcademica> respuestas;
+    private List<RespuestaActividadAcademica> respuestas;
 
     // 7 - Muchas personas se graduan en un recinto
     @ManyToOne(fetch = FetchType.LAZY)
