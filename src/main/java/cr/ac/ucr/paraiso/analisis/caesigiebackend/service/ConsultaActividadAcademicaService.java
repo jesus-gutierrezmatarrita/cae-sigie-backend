@@ -13,11 +13,11 @@ public class ConsultaActividadAcademicaService {
     @Autowired
     ConsultaActividadAcademicaRepository consultaRepository;
 
-    public List<ConsultaActividadAcademica> obtenerConsulta() {
+    public List<ConsultaActividadAcademica> obtenerConsultas() {
         return (List<ConsultaActividadAcademica>) this.consultaRepository.findAll();
     }
 
-    public ConsultaActividadAcademica guardadConsulta(ConsultaActividadAcademica actividadAcademica) {
+    public ConsultaActividadAcademica guardarConsulta(ConsultaActividadAcademica actividadAcademica) {
         return this.consultaRepository.save(actividadAcademica);
     }
     

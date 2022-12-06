@@ -28,6 +28,21 @@ public class ConsultaActividadAcademica {
     @Column(name = "lugarActividad", unique = false, length = 50, nullable = false)
     private String lugarActividad;
 
+    /* 
+    public ConsultaActividadAcademica(int idConsultaActividadAcademica, String titulo, String descripcion,
+            LocalDateTime fecha1RealizacionDeActividad, LocalDateTime fecha2RealizacionDeActividad,
+            LocalDateTime fechaInicio, LocalDateTime fechaFin, String modalidad, String lugarActividad) {
+        this.idConsultaActividadAcademica = idConsultaActividadAcademica;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.fecha1RealizacionDeActividad = fecha1RealizacionDeActividad;
+        this.fecha2RealizacionDeActividad = fecha2RealizacionDeActividad;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.modalidad = modalidad;
+        this.lugarActividad = lugarActividad;
+    }*/
+
     public int getIdConsultaActividadAcademica() {
         return idConsultaActividadAcademica;
     }
