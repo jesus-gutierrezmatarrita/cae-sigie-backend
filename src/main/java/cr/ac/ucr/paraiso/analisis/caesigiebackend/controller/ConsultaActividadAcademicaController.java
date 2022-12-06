@@ -20,13 +20,13 @@ public class ConsultaActividadAcademicaController {
 
     @GetMapping
     public List<ConsultaActividadAcademica> obtenerConsultaActividadAcademicas() {
-        return this.actividadAcademicaService.obtenerConsulta();
+        return this.actividadAcademicaService.obtenerConsultas();
     }
 
     @PostMapping
     public ConsultaActividadAcademica guardarConsultaActividadAcademica
         (@RequestBody ConsultaActividadAcademica consultaActividadAcademica) {
-        return this.actividadAcademicaService.guardadConsulta(consultaActividadAcademica);
+        return this.actividadAcademicaService.guardarConsulta(consultaActividadAcademica);
     }
 
 }
