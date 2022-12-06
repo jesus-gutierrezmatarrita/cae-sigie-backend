@@ -20,7 +20,7 @@ class CaeSigieBackendApplicationTests {
 	 * Reference by https://spring.io/guides/gs/testing-web/
 	 */
 	@Test
-	void contextLoads() {
+	void contextLoads() throws Exception {
 		assertThat(controller).isNotNull();
 	}
 
