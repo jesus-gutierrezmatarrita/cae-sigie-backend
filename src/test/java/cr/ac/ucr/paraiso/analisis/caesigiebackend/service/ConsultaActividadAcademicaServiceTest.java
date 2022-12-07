@@ -44,7 +44,7 @@ public class ConsultaActividadAcademicaServiceTest {
      * If we give it a record, the response must not be null
      */
     @Test
-    void findAll() {
+    void findAll_DataIsValid_IsNotNull() {
         // Act
         when(repository.findAll()).thenReturn(Arrays.asList(consulta));
 
@@ -53,10 +53,10 @@ public class ConsultaActividadAcademicaServiceTest {
     }
 
     /**
-     * If we give it three records, the size of response must be three
+     * If we give it five records, the size of response must be five
      */
     @Test
-    void validSize(){
+    void findAll_ValidSize_IsFive(){
         // Act
         when(repository.findAll()).thenReturn(Arrays.asList(
             new ConsultaActividadAcademica(),
@@ -64,10 +64,10 @@ public class ConsultaActividadAcademicaServiceTest {
             new ConsultaActividadAcademica(),
             new ConsultaActividadAcademica(),
             new ConsultaActividadAcademica()));
-        List<ConsultaActividadAcademica> allCountries = service.obtenerConsultas();
+        List<ConsultaActividadAcademica> actividades = service.obtenerConsultas();
 
         // Assert
-        assertEquals(5, allCountries.size());
+        assertEquals(5, actividades.size());
     }
 
 }
