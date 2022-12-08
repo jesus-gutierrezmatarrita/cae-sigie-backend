@@ -56,7 +56,7 @@ public class RecintoServiceTest {
      * If we give it two records, the size of response must be two
      */
     @Test
-    void indAll_ValidSize_IsTwo() {
+    void findAll_ValidSize_IsTwo() {
         // Act
         when(repository.findAll()).thenReturn(Arrays.asList(
             recinto,
