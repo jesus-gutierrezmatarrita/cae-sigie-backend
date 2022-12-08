@@ -20,7 +20,7 @@ public class PersonaCoordinadora {
     private int telefono;
     @Column(name = "carnet", unique = false, length = 20, nullable = true)
     private String carnet;
-    @Column(name = "contrasenna", unique = false, length = 20, nullable = false)
+    @Column(name = "contrasenna", unique = false, length = 20, nullable = true)
     private String contrasenna;
 
     // 5 - Una PersonaCoordinadora publica muchas consultas
