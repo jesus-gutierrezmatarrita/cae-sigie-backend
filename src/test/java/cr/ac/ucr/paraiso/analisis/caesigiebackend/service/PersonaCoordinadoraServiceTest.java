@@ -1,20 +1,19 @@
 package cr.ac.ucr.paraiso.analisis.caesigiebackend.service;
 
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.PersonaCoordinadora;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.Recinto;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.repository.PersonaCoordinadoraRepository;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.repository.RecintoRepository;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Arrays;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.PersonaCoordinadora;
+import cr.ac.ucr.paraiso.analisis.caesigiebackend.repository.PersonaCoordinadoraRepository;
 
 class PersonaCoordinadoraServiceTest {
 
@@ -36,6 +35,9 @@ class PersonaCoordinadoraServiceTest {
         personaCoordinadora.setApellidos("Doe");
     }
 
+    /**
+     * Si le damos un registro, la respuesta no debería ser nula
+     */
     @Test
     void obtenerPersonasCoordinadoras_DatosSonValidados_IsNotNull() {
         // Act
@@ -54,8 +56,4 @@ class PersonaCoordinadoraServiceTest {
         assertEquals("John", personaCoordinadora.getNombre());
     }
 
-    @Test
-    void findPersonaByEmail() {
-
-    }
 }

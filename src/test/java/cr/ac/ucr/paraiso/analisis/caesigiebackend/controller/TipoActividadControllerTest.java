@@ -1,9 +1,9 @@
 package cr.ac.ucr.paraiso.analisis.caesigiebackend.controller;
 
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.Recinto;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.TipoDeActividad;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.service.RecintoService;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.service.TipoActividadService;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,9 +22,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
+import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.TipoDeActividad;
+import cr.ac.ucr.paraiso.analisis.caesigiebackend.service.TipoActividadService;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(value = TipoActividadController.class)
@@ -43,10 +42,10 @@ class TipoActividadControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-        actividad1 = new TipoDeActividad(1,"Taller");
-        actividad2 = new TipoDeActividad(2,"Charla");
+        actividad1 = new TipoDeActividad(1, "Taller");
+        actividad2 = new TipoDeActividad(2, "Charla");
 
-        actividades= new ArrayList<TipoDeActividad>();
+        actividades = new ArrayList<TipoDeActividad>();
         actividades.add(actividad1);
         actividades.add(actividad2);
 
@@ -58,7 +57,7 @@ class TipoActividadControllerTest {
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
                 "/tipoactividad").accept(
-                MediaType.APPLICATION_JSON);
+                        MediaType.APPLICATION_JSON);
 
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
@@ -87,6 +86,6 @@ class TipoActividadControllerTest {
 
         assertEquals(HttpStatus.OK.value(), response.getStatus());
 
-
     }
+    
 }

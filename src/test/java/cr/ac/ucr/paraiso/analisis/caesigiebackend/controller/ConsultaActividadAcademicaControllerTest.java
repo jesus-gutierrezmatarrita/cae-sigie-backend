@@ -1,23 +1,19 @@
 package cr.ac.ucr.paraiso.analisis.caesigiebackend.controller;
 
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.ConsultaActividadAcademica;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.PersonaCoordinadora;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.PersonaGraduada;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.TipoDeActividad;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.repository.ConsultaActividadAcademicaRepository;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.service.ConsultaActividadAcademicaService;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -27,14 +23,10 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
-import static org.springframework.web.servlet.function.RequestPredicates.contentType;
+import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.ConsultaActividadAcademica;
+import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.PersonaGraduada;
+import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.TipoDeActividad;
+import cr.ac.ucr.paraiso.analisis.caesigiebackend.service.ConsultaActividadAcademicaService;
 
 
 @ExtendWith(SpringExtension.class)
@@ -103,6 +95,5 @@ class ConsultaActividadAcademicaControllerTest {
         assertEquals(HttpStatus.OK.value(), response.getStatus());
 
     }
-
 
 }

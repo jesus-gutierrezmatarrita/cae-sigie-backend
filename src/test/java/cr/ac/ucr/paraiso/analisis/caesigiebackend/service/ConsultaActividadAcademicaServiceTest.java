@@ -41,10 +41,10 @@ public class ConsultaActividadAcademicaServiceTest {
     }
 
     /**
-     * If we give it a record, the response must not be null
+     * Si le damos un registro, la respuesta no debería ser nula
      */
     @Test
-    void findAll_DataIsValid_IsNotNull() {
+    void findAll_DatosSonValidos_NoEsNulo() {
         // Act
         when(repository.findAll()).thenReturn(Arrays.asList(consulta));
 
@@ -53,10 +53,10 @@ public class ConsultaActividadAcademicaServiceTest {
     }
 
     /**
-     * If we give it five records, the size of response must be five
+     * Si le damos cinco registros, el tamanno debe ser cinco
      */
     @Test
-    void findAll_ValidSize_IsFive(){
+    void findAll_TamannoValido_EsCinco(){
         // Act
         when(repository.findAll()).thenReturn(Arrays.asList(
             new ConsultaActividadAcademica(),

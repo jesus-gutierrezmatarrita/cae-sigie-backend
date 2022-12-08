@@ -1,11 +1,9 @@
 package cr.ac.ucr.paraiso.analisis.caesigiebackend.controller;
 
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.ConsultaActividadAcademica;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.PersonaGraduada;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.Recinto;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.TipoDeActividad;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.service.ConsultaActividadAcademicaService;
-import cr.ac.ucr.paraiso.analisis.caesigiebackend.service.RecintoService;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,11 +22,10 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
-
+import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.ConsultaActividadAcademica;
+import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.PersonaGraduada;
+import cr.ac.ucr.paraiso.analisis.caesigiebackend.entity.Recinto;
+import cr.ac.ucr.paraiso.analisis.caesigiebackend.service.RecintoService;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(value = RecintoController.class)
@@ -45,16 +42,15 @@ class RecintoControllerTest {
     ArrayList<PersonaGraduada> personasGraduadas;
     Recinto recinto;
 
-
-
-
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
         recintos = new ArrayList<Recinto>();
         consultasActividadesAcademicas = new ArrayList<ConsultaActividadAcademica>();
         personasGraduadas = new ArrayList<PersonaGraduada>();
-        recinto = new Recinto(1,"30","Recinto de Paraiso, Sede del Atlantico",2511-0000,"Cartago","Paraiso", "Paraiso","Paraiso de Cartago, del parque de Paraiso, un kilometro y medio carretera a Orosi" ,consultasActividadesAcademicas,personasGraduadas);
+        recinto = new Recinto(1, "30", "Recinto de Paraiso, Sede del Atlantico", 2511 - 0000, "Cartago", "Paraiso",
+                "Paraiso", "Paraiso de Cartago, del parque de Paraiso, un kilometro y medio carretera a Orosi",
+                consultasActividadesAcademicas, personasGraduadas);
         recintos.add(recinto);
     }
 
@@ -64,7 +60,7 @@ class RecintoControllerTest {
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
                 "/recinto").accept(
-                MediaType.APPLICATION_JSON);
+                        MediaType.APPLICATION_JSON);
 
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
@@ -82,7 +78,9 @@ class RecintoControllerTest {
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/recinto")
-                .accept(MediaType.APPLICATION_JSON).content("{\"idRecinto\":1,\"codigoRecinto\":\"30\",\"nombre\":\"Recinto de Paraiso, Sede del Atlantico\",\"contacto\":2511,\"provincia\":\"Cartago\",\"canton\":\"Paraiso\",\"distrito\":\"Paraiso\",\"direccion\":\"Paraiso de Cartago, del parque de Paraiso, un kilometro y medio carretera a Orosi\",\"consultas\":[],\"personasGraduadas\":[]}")
+                .accept(MediaType.APPLICATION_JSON)
+                .content(
+                        "{\"idRecinto\":1,\"codigoRecinto\":\"30\",\"nombre\":\"Recinto de Paraiso, Sede del Atlantico\",\"contacto\":2511,\"provincia\":\"Cartago\",\"canton\":\"Paraiso\",\"distrito\":\"Paraiso\",\"direccion\":\"Paraiso de Cartago, del parque de Paraiso, un kilometro y medio carretera a Orosi\",\"consultas\":[],\"personasGraduadas\":[]}")
                 .contentType(MediaType.APPLICATION_JSON);
 
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
@@ -92,4 +90,5 @@ class RecintoControllerTest {
 
         assertEquals(HttpStatus.OK.value(), response.getStatus());
     }
+    
 }
