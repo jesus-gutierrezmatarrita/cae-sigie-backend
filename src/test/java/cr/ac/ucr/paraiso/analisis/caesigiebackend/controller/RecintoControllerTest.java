@@ -41,6 +41,9 @@ class RecintoControllerTest {
     private RecintoService service;
 
     private ArrayList<Recinto> recintos;
+    ArrayList<ConsultaActividadAcademica> consultasActividadesAcademicas;
+    ArrayList<PersonaGraduada> personasGraduadas;
+    Recinto recinto;
 
 
 
@@ -49,15 +52,14 @@ class RecintoControllerTest {
     void setUp() {
         MockitoAnnotations.initMocks(this);
         recintos = new ArrayList<Recinto>();
-        ArrayList<ConsultaActividadAcademica> consultasActividadesAcademicas = new ArrayList<ConsultaActividadAcademica>();
-        ArrayList<PersonaGraduada> personasGraduadas = new ArrayList<PersonaGraduada>();
-
-        Recinto recinto = new Recinto(1,"30","Recinto de Paraiso, Sede del Atlantico",2511-0000,"Cartago","Paraiso", "Paraiso","Paraiso de Cartago, del parque de Paraiso, un kilometro y medio carretera a Orosi" ,consultasActividadesAcademicas,personasGraduadas);
+        consultasActividadesAcademicas = new ArrayList<ConsultaActividadAcademica>();
+        personasGraduadas = new ArrayList<PersonaGraduada>();
+        recinto = new Recinto(1,"30","Recinto de Paraiso, Sede del Atlantico",2511-0000,"Cartago","Paraiso", "Paraiso","Paraiso de Cartago, del parque de Paraiso, un kilometro y medio carretera a Orosi" ,consultasActividadesAcademicas,personasGraduadas);
         recintos.add(recinto);
     }
 
     @Test
-    void obtenerRecintos() throws Exception {
+    void obtenerRecintos_DatosSonValidos_ListaRecintos() throws Exception {
         Mockito.when(service.obtenerRecintos()).thenReturn(recintos);
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
@@ -75,11 +77,7 @@ class RecintoControllerTest {
     }
 
     @Test
-    void guardarRecinto() throws Exception {
-        ArrayList<ConsultaActividadAcademica> consultasActividadesAcademicas = new ArrayList<ConsultaActividadAcademica>();
-        ArrayList<PersonaGraduada> personasGraduadas = new ArrayList<PersonaGraduada>();
-        Recinto recinto = new Recinto(1,"30","Recinto de Paraiso, Sede del Atlantico",2511-0000,"Cartago","Paraiso", "Paraiso","Paraiso de Cartago, del parque de Paraiso, un kilometro y medio carretera a Orosi" ,consultasActividadesAcademicas,personasGraduadas);
-
+    void guardarRecinto_InsercionEsCorrecta_Recinto() throws Exception {
         Mockito.when(service.guardarRecinto(Mockito.any(Recinto.class))).thenReturn(recinto);
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders

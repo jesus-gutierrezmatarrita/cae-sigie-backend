@@ -25,7 +25,7 @@ public class PersonaCoordinadoraController {
     }
 
     @PostMapping
-    public PersonaCoordinadora guardarRecinto(@RequestBody PersonaCoordinadora personaCoordinadora) {
+    public PersonaCoordinadora guardarPersona(@RequestBody PersonaCoordinadora personaCoordinadora) {
         return this.personaCoordinadoraService.guardarPersonaCoordinadora(personaCoordinadora);
     }
 

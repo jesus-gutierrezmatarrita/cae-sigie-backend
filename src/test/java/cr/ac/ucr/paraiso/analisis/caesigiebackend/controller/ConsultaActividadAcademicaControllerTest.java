@@ -48,15 +48,17 @@ class ConsultaActividadAcademicaControllerTest {
     private ConsultaActividadAcademicaService service;
 
     ArrayList<ConsultaActividadAcademica> consultasActividadesAcademicas;
+    TipoDeActividad tipoDeActividad;
+    ConsultaActividadAcademica consulta;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-        TipoDeActividad tipoDeActivida = new TipoDeActividad(1,"Taller");
-        ConsultaActividadAcademica consulta = new ConsultaActividadAcademica(1,"Taller de Github", "El siguiente taller busca que el estudiantado pueda conocer mas acerca del versionamiento de proyectos de software",
+        tipoDeActividad = new TipoDeActividad(1,"Taller");
+        consulta = new ConsultaActividadAcademica(1,"Taller de Github", "El siguiente taller busca que el estudiantado pueda conocer mas acerca del versionamiento de proyectos de software",
                 LocalDateTime.of(2022,12,10,13,00),LocalDateTime.of(2022,12,12,17,00),
                 LocalDateTime.of(2022,12,1,00,00),
-                LocalDateTime.of(2022,12,6,12,00), "Virtual", "Recinto de Paraiso, Lab 14",tipoDeActivida);
+                LocalDateTime.of(2022,12,6,12,00), "Virtual", "Recinto de Paraiso, Lab 14",tipoDeActividad);
         PersonaGraduada personaGraduada = new PersonaGraduada();
 
         consultasActividadesAcademicas = new ArrayList<ConsultaActividadAcademica>();
@@ -65,7 +67,7 @@ class ConsultaActividadAcademicaControllerTest {
     }
 
     @Test
-    void obtenerConsultaActividadAcademicas() throws Exception {
+    void obtenerConsultaActividadAcademicas_DatosSonValidos_ListaConsultaActivdadesAcademicas() throws Exception {
 
         Mockito.when(service.obtenerConsultas()).thenReturn(consultasActividadesAcademicas);
 
@@ -84,13 +86,7 @@ class ConsultaActividadAcademicaControllerTest {
     }
 
     @Test
-    void guardarConsultaActividadAcademica() throws Exception {
-
-        TipoDeActividad tipoDeActivida = new TipoDeActividad(1,"Taller");
-        ConsultaActividadAcademica consulta = new ConsultaActividadAcademica(1,"Taller de Github", "El siguiente taller busca que el estudiantado pueda conocer mas acerca del versionamiento de proyectos de software",
-                LocalDateTime.of(2022,12,10,13,00),LocalDateTime.of(2022,12,12,17,00),
-                LocalDateTime.of(2022,12,1,00,00),
-                LocalDateTime.of(2022,12,6,12,00), "Virtual", "Recinto de Paraiso, Lab 14",tipoDeActivida);
+    void guardarConsultaActividadAcademica_InsercionEsCorrecta_ConsultaActividadAcadmica() throws Exception {
 
         Mockito.when(service.guardarConsulta(Mockito.any(ConsultaActividadAcademica.class))).thenReturn(consulta);
 
