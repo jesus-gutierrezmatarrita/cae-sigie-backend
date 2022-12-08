@@ -39,4 +39,18 @@ public class PersonaGraduada {
     @JoinColumn(name = "idRecinto")
     private Recinto recintoDeGraduado;
 
+    public PersonaGraduada() {
+    }
+
+    public PersonaGraduada(int idPersonaGraduada, String nombre, String apellidos, String correoElectronico, int telefono, String carnet, List<ItemGraduacion> itemnesGraduacion, List<RespuestaActividadAcademica> respuestas, Recinto recintoDeGraduado) {
+        this.idPersonaGraduada = idPersonaGraduada;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correoElectronico = correoElectronico;
+        this.telefono = telefono;
+        this.carnet = carnet;
+        this.itemnesGraduacion = itemnesGraduacion;
+        this.respuestas = respuestas;
+        this.recintoDeGraduado = recintoDeGraduado;
+    }
 }

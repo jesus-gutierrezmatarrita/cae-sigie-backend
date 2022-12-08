@@ -26,4 +26,76 @@ public class PersonaCoordinadora {
     // 5 - Una PersonaCoordinadora publica muchas consultas
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaCoordinadora", orphanRemoval = true)
     private List<ConsultaActividadAcademica> consultas;
+
+    public PersonaCoordinadora() {
+    }
+
+    public PersonaCoordinadora(int idPersonaCoordinadora, String nombre, String apellidos, String correoElectronico, int telefono, String carnet, String contrasenna, List<ConsultaActividadAcademica> consultas) {
+        this.idPersonaCoordinadora = idPersonaCoordinadora;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correoElectronico = correoElectronico;
+        this.telefono = telefono;
+        this.carnet = carnet;
+        this.contrasenna = contrasenna;
+        this.consultas = consultas;
+    }
+
+    public int getIdPersonaCoordinadora() {
+        return idPersonaCoordinadora;
+    }
+
+    public void setIdPersonaCoordinadora(int idPersonaCoordinadora) {
+        this.idPersonaCoordinadora = idPersonaCoordinadora;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCarnet() {
+        return carnet;
+    }
+
+    public void setCarnet(String carnet) {
+        this.carnet = carnet;
+    }
+
+    public String getContrasenna() {
+        return contrasenna;
+    }
+
+    public void setContrasenna(String contrasenna) {
+        this.contrasenna = contrasenna;
+    }
+
+
 }
