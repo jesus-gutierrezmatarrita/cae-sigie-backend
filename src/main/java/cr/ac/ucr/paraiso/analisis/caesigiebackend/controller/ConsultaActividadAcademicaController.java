@@ -26,6 +26,7 @@ public class ConsultaActividadAcademicaController {
     @PostMapping
     public ConsultaActividadAcademica guardarConsultaActividadAcademica
         (@RequestBody ConsultaActividadAcademica consultaActividadAcademica) {
+
         return this.actividadAcademicaService.guardarConsulta(consultaActividadAcademica);
     }
 

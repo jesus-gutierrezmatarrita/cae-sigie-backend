@@ -17,7 +17,6 @@ class CaeSigieBackendApplicationTests {
 	/**
 	 * @throws Exception
      * Simple sanity check test that will fail if the application context cannot start
-	 * Reference by https://spring.io/guides/gs/testing-web/
 	 */
 	@Test
 	void contextLoads() throws Exception {

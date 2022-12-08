@@ -3,6 +3,7 @@ package cr.ac.ucr.paraiso.analisis.caesigiebackend.entity;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -28,10 +29,29 @@ public class ConsultaActividadAcademica {
     @Column(name = "lugarActividad", unique = false, length = 50, nullable = false)
     private String lugarActividad;
 
-    /* 
-    public ConsultaActividadAcademica(int idConsultaActividadAcademica, String titulo, String descripcion,
-            LocalDateTime fecha1RealizacionDeActividad, LocalDateTime fecha2RealizacionDeActividad,
-            LocalDateTime fechaInicio, LocalDateTime fechaFin, String modalidad, String lugarActividad) {
+    // 3 - Una ConsultaActividadAcademica tiene muchas respuestas
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actividadAcademica", orphanRemoval = true)
+    private List<RespuestaActividadAcademica> respuestas;
+
+    // 4 - Las ConsultaActividadAcademica tienen un TipoDeActividad
+    @ManyToOne
+    @JoinColumn(name = "idTipo")
+    private TipoDeActividad tipoDeActividad;
+
+    // 5 - Las ConsultaActividadAcademica son publicadas por una PersonaCoordinadora
+    @ManyToOne
+    @JoinColumn(name = "idPersonaCoordinadora")
+    @JsonIgnoreProperties(value="consultas")
+    private PersonaCoordinadora personaCoordinadora;
+
+    // 6 - Many to many
+    @ManyToMany
+    private List<Recinto> recintos;
+
+    public ConsultaActividadAcademica() {
+    }
+
+    public ConsultaActividadAcademica(int idConsultaActividadAcademica, String titulo, String descripcion, LocalDateTime fecha1RealizacionDeActividad, LocalDateTime fecha2RealizacionDeActividad, LocalDateTime fechaInicio, LocalDateTime fechaFin, String modalidad, String lugarActividad, TipoDeActividad tipoDeActividad) {
         this.idConsultaActividadAcademica = idConsultaActividadAcademica;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -41,7 +61,9 @@ public class ConsultaActividadAcademica {
         this.fechaFin = fechaFin;
         this.modalidad = modalidad;
         this.lugarActividad = lugarActividad;
-    }*/
+        this.tipoDeActividad = tipoDeActividad;
+
+    }
 
     public int getIdConsultaActividadAcademica() {
         return idConsultaActividadAcademica;
@@ -99,22 +121,30 @@ public class ConsultaActividadAcademica {
         this.lugarActividad = lugarActividad;
     }
 
-    // 3 - Una ConsultaActividadAcademica tiene muchas respuestas
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actividadAcademica", orphanRemoval = true)
-    private List<RespuestaActividadAcademica> respuestas;
+    public LocalDateTime getFechaInicio() {
+        return fechaInicio;
+    }
 
-    // 4 - Las ConsultaActividadAcademica tienen un TipoDeActividad
-    @ManyToOne
-    @JoinColumn(name = "idTipo")
-    private TipoDeActividad tipoDeActividad;
+    public void setFechaInicio(LocalDateTime fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
 
-    // 5 - Las ConsultaActividadAcademica son publicadas por una PersonaCoordinadora
-    @ManyToOne
-    @JoinColumn(name = "idPersonaCoordinadora")
-    private PersonaCoordinadora personaCoordinadora;
+    public TipoDeActividad getTipoDeActividad() {
+        return tipoDeActividad;
+    }
 
-    // 6 - Many to many
-    @ManyToMany
-    private List<Recinto> recintos;
+    public void setTipoDeActividad(TipoDeActividad tipoDeActividad) {
+        this.tipoDeActividad = tipoDeActividad;
+    }
+
+
+    public LocalDateTime getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDateTime fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
 
 }

@@ -28,5 +28,11 @@ public class TipoDeActividad {
         return "TipoDeActividad [idTipo=" + idTipo + ", nombreTipo=" + nombreTipo + "]";
     }
 
-    
+    public TipoDeActividad() {
+    }
+
+    public TipoDeActividad(int idTipo, String nombreTipo) {
+        this.idTipo = idTipo;
+        this.nombreTipo = nombreTipo;
+    }
 }

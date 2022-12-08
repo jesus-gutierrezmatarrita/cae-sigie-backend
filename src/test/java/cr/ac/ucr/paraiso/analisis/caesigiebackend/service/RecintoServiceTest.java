@@ -41,10 +41,10 @@ public class RecintoServiceTest {
     }
 
     /**
-     * If we give it a record, the response must not be null
+     * Si le damos un registro, la respuesta no debería ser nula
      */
     @Test
-    void findAll_DataIsValid_IsNotNull() {
+    void obtenerRecintos_DatosSonValidos_NoEsNulo() {
         // Act
         when(repository.findAll()).thenReturn(Arrays.asList(recinto));
 
@@ -53,10 +53,10 @@ public class RecintoServiceTest {
     }
 
     /**
-     * If we give it two records, the size of response must be two
+     * Si le damos dos registros, el tamanno deberia ser dos
      */
     @Test
-    void indAll_ValidSize_IsTwo() {
+    void findAll_TamannoValido_EsDos() {
         // Act
         when(repository.findAll()).thenReturn(Arrays.asList(
             recinto,

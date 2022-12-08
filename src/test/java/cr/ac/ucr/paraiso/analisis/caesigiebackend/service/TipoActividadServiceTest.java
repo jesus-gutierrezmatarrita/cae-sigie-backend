@@ -39,10 +39,10 @@ public class TipoActividadServiceTest {
     }
 
     /**
-     * If we give it a record, the response must not be null
+     * Si le damos un registro, no debería ser nulo
      */
     @Test
-    void findAll_DataIsValid_IsNotNull() {
+    void findAll_DatosSonValidos_NoEsNulo() {
         // Act
         when(repository.findAll()).thenReturn(Arrays.asList(tipoDeActividad));
 
@@ -51,10 +51,10 @@ public class TipoActividadServiceTest {
     }
 
     /**
-     * If we give it four records, the size of response must be four
+     * Si le damos cuatro registro, el tamanno debe ser
      */
     @Test
-    void indAll_ValidSize_IsFour() {
+    void findAll_tamannoValido_EsCuatro() {
         // Act
         when(repository.findAll()).thenReturn(Arrays.asList(
             tipoDeActividad,
